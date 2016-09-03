@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap_v3.3.7.css">
+	<link rel="stylesheet" type="text/css" href="simonsito.css">
+	<title>Simon Says</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="midRow" class="row vertical_align_col">
+			<div class="col-xs-12 col-md-4 vertical_align_elem">
+				<div class="col-xs-12 vertical_align_col"></div>
+				<img class="img-fluid pull_right" src="src/rojo.png">
+			</div>
+			<div class="row col-xs-12 col-md-4">
+				<div class="row">
+					<img class="img-fluid col-xs-12" src="src/azul.png">
+				</div>
+				<div class="row jumbotron">
+					<div class="col-xs-3"></div>
+					<button id="btn_go" type="button" class="btn col-xs-6 btn-primary">GO!</button>
+					<div class="col-xs-3"></div>
+					<p class="text-center col-xs-12">Score: 000</p>
+					<div class="col-xs-3"></div>
+					<button id="btn_restart" type="button" class="btn col-xs-6 btn-primary">Restart</button>
+					<div class="col-xs-3"></div>
+				</div>
+				<div class="row">
+					<img class="img-fluid col-xs-12" src="src/amarillo.png">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-4 vertical_align_elem">
+				<img class="img-fluid pull_left" src="src/verde.png">
+				<div class="col-xs-12 vertical_align_col"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="simon.js"></script>
+	<script type="text/javascript" src="jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

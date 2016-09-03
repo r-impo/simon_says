@@ -1,0 +1,30 @@
+.container-fluid {
+	background-color: rgb(42, 42, 42);
+}
+.vertical_align_col {
+	display: flex;
+	flex-direction: row;
+}
+.margens {
+	height: 100%
+}
+.vertical_align_elem {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.btn-primary:hover {
+	opacity: 0.8;
+}
+.btn_primary:selected {
+	border: 0px;
+}
+#btn_go {
+	margin-bottom: 15px;
+	height: 50px;
+	background-color: #454545;
+}
+#btn_restart {
+	margin-top: 15px;
+	background-color: #454545;
+}
