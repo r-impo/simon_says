@@ -11,27 +11,27 @@
 		<div id="midRow" class="row vertical_align_col">
 			<div class="col-xs-12 col-md-4 vertical_align_elem">
 				<div class="col-xs-12 vertical_align_col"></div>
-				<img class="img-fluid pull_right" src="src/rojo.png">
+				<img id="rojo_img" class="img-fluid pull_right" src="src/rojo.png" onclick="playSound(0)">
 			</div>
 			<div class="row col-xs-12 col-md-4">
 				<div class="row">
-					<img class="img-fluid col-xs-12" src="src/azul.png">
+					<img id="azul_img" class="img-fluid col-xs-12" src="src/azul.png" onclick="playSound(1)">
 				</div>
 				<div class="row jumbotron">
 					<div class="col-xs-3"></div>
-					<button id="btn_go" type="button" class="btn col-xs-6 btn-primary">GO!</button>
+					<button id="btn_go" type="button" class="btn col-xs-6 btn-primary" onclick="start(true)">GO!</button>
 					<div class="col-xs-3"></div>
-					<p class="text-center col-xs-12">Score: 000</p>
+					<p class="text-center col-xs-12" id="score_track">Score: 0</p>
 					<div class="col-xs-3"></div>
-					<button id="btn_restart" type="button" class="btn col-xs-6 btn-primary">Restart</button>
+					<button id="btn_restart" type="button" class="btn col-xs-6 btn-primary" onclick="reset()">Restart</button>
 					<div class="col-xs-3"></div>
 				</div>
 				<div class="row">
-					<img class="img-fluid col-xs-12" src="src/amarillo.png">
+					<img id="amarillo_img" class="img-fluid col-xs-12" src="src/amarillo.png" onclick="playSound(2)">
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 vertical_align_elem">
-				<img class="img-fluid pull_left" src="src/verde.png">
+				<img id="verde_img" class="img-fluid pull_left" src="src/verde.png" onclick="playSound(3)">
 				<div class="col-xs-12 vertical_align_col"></div>
 			</div>
 		</div>
