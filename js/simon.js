@@ -1,34 +1,54 @@
 var rojo = {
 	name: "rojo",
 	id: document.getElementById("rojo_img"),
-	audio: new Audio("src/rojo.wav")
+	audio: new Howl({
+			src: ["src/rojo.wav"]
+		})
 },
 	azul = {
 	name: "azul",
 	id: document.getElementById("azul_img"),
-	audio: new Audio("src/azul.wav")
+	audio: new Howl({
+			src: ["src/azul.wav"]
+		})
 },
 	amarillo = {
 	name: "amarillo",
 	id: document.getElementById("amarillo_img"),
-	audio: new Audio("src/amarillo.wav")
+	audio: new Howl({
+			src: ["src/amarillo.wav"]
+		})
 },
 	verde = {
 	name: "verde",
 	id: document.getElementById("verde_img"),
-	audio: new Audio("src/verde.wav")
+	audio: new Howl({
+			src: ["src/verde.wav"]
+		})
 };
 
 var score_elem = document.getElementById("score_track"),
 	contador = 1,
 	arrayAI = [],
 	arrayJug = [],
+	arrayMain = [rojo, azul, amarillo, verde],
 	turnSet = false;
 	
-function start(estado) { // empieza! Despliega puntaje 0 y pasa el turno a AI (true);
-	turnSet = estado;
-	oneMoreLoop(Math.floor(Math.random() * 4), contador);
-}
+function ai() { // empieza! Despliega puntaje 0 y pasa el turno a AI
+	turnSet = false;
+	arrayAI.push(Math.floor(Math.random() * 4));
+	console.log("arrayAI tiene " + arrayAI.length + " elementos");
+	var notas = 0;
+	var run = setInterval(playAI, 1200);
+	function playAI() {
+		if (notas == contador) {
+			clearInterval(run)
+		}
+        arrayAI[notas].audio.play();
+		notas++
+	}
+	turnSet = true;
+};
 
 function reset() {
 	contador = 0;
@@ -43,7 +63,8 @@ function timerForPlayer() {
 	for (i = 0; i < arrayAI.length; i++) {
 		if (arrayJug[i] === arrayAI[i] && arrayJug.length == arrayAI.length) {
 			score_elem.innerHTML = "Score: " + contador;
-			setTimeout(oneMoreLoop, 2000);	
+			arrayJug = [];
+			setTimeout(ai, 1000);	
 		}
 		else if (arrayJug[i] != undefined && arrayJug[i] != arrayAI[i]) {
 			console.log("PERDISTE AMEO!!")
@@ -61,7 +82,7 @@ function playerInput(value) {
 				arrayJug.push(value);
 				setTimeout(function() {
 					rojo.id.style.opacity = 1;
-				}, 300);
+				}, 400);
 			break;
 			
 			case 1:
@@ -70,7 +91,7 @@ function playerInput(value) {
 				arrayJug.push(value);
 				setTimeout(function() {
 					azul.id.style.opacity = 1;
-				}, 300);
+				}, 400);
 			break;
 			
 			case 2:
@@ -79,7 +100,7 @@ function playerInput(value) {
 				arrayJug.push(value);
 				setTimeout(function() {
 					amarillo.id.style.opacity = 1;
-				}, 300);
+				}, 400);
 			break;
 			
 			case 3:
@@ -88,7 +109,7 @@ function playerInput(value) {
 				arrayJug.push(value);
 				setTimeout(function() {
 					verde.id.style.opacity = 1;
-				}, 300);			
+				}, 400);			
 			break;
 			
 			default:
@@ -101,54 +122,3 @@ function playerInput(value) {
 	}
 	timerForPlayer();
 }
-
-function oneMoreLoop() {
-	turnSet = false;
-	arrayAI.push(Math.floor(Math.random() * 4));
-	var notas = 0;
-	function playArray(notas) {
-		switch(arrayAI[notas]) {
-			case 0:
-				rojo.id.style.opacity = 0.8;
-				setTimeout(function() {
-					rojo.audio.play();
-					rojo.id.style.opacity = 1;
-				}, 300);
-				notas++
-			return setTimeout(playArray(notas), 1700);
-
-			case 1:
-				azul.id.style.opacity = 0.8;
-				setTimeout(function() {
-					azul.audio.play();
-					azul.id.style.opacity = 1;
-				}, 300);
-				notas++
-			return setTimeout(playArray(notas), 1700);
-
-			case 2:
-				amarillo.id.style.opacity = 0.8;
-				setTimeout(function() {
-					amarillo.audio.play();
-					amarillo.id.style.opacity = 1;
-				}, 300);
-				notas++
-			return setTimeout(playArray(notas), 1700);
-
-			case 3:
-				verde.id.style.opacity = 0.8;
-				setTimeout(function() {
-					verde.audio.play();
-					verde.id.style.opacity = 1;
-				}, 300);
-				notas++
-			return setTimeout(playArray(notas), 1700);
-
-			default:
-				turnSet = true;
-				return console.log("No hay mas array! Se cumplio el loop AI nro " + contador);
-			break;
-		}
-	}
-	playArray(notas)
-};
