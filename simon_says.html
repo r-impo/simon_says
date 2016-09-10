@@ -11,27 +11,27 @@
 		<div id="midRow" class="row vertical_align_col">
 			<div class="col-xs-12 col-md-4 vertical_align_elem">
 				<div class="col-xs-12 vertical_align_col"></div>
-				<img id="rojo_img" class="img-fluid pull_right" src="src/rojo.png" onclick="playerInput(0)">
+				<img id="rojo_img" class="img-fluid pull_right" src="src/rojo.png" onclick="listenForPlayer(0)">
 			</div>
 			<div class="row col-xs-12 col-md-4">
 				<div class="row">
-					<img id="azul_img" class="img-fluid col-xs-12" src="src/azul.png" onclick="playerInput(1)">
+					<img id="azul_img" class="img-fluid col-xs-12" src="src/azul.png" onclick="listenForPlayer(1)">
 				</div>
 				<div class="row jumbotron">
 					<div class="col-xs-3"></div>
-					<button id="btn_go" type="button" class="btn col-xs-6 btn-primary" onclick="ai()">GO!</button>
+					<button id="btn_go" type="button" class="btn col-xs-6 btn-primary" onclick="newGame()">GO!</button>
 					<div class="col-xs-3"></div>
 					<p class="text-center col-xs-12" id="score_track">Score: 0</p>
 					<div class="col-xs-3"></div>
-					<button id="btn_restart" type="button" class="btn col-xs-6 btn-primary" onclick="reset()">Restart</button>
+					<button id="btn_restart" type="button" class="btn col-xs-6 btn-primary" onclick="restartGame()">Restart</button>
 					<div class="col-xs-3"></div>
 				</div>
 				<div class="row">
-					<img id="amarillo_img" class="img-fluid col-xs-12" src="src/amarillo.png" onclick="playerInput(2)">
+					<img id="amarillo_img" class="img-fluid col-xs-12" src="src/amarillo.png" onclick="listenForPlayer(2)">
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 vertical_align_elem">
-				<img id="verde_img" class="img-fluid pull_left" src="src/verde.png" onclick="playerInput(3)">
+				<img id="verde_img" class="img-fluid pull_left" src="src/verde.png" onclick="listenForPlayer(3)">
 				<div class="col-xs-12 vertical_align_col"></div>
 			</div>
 		</div>
